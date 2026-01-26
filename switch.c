@@ -12,8 +12,9 @@ int main()
             printf("Eccoti l'aragosta\n");
             break;
         case 2:
-            printf("Eccoti li scampi\n");
-            break;
+            printf("Eccoti gli scampi\n"); //voglio che la bistecca sia in regalo con gli scampi
+            // break;
+        case 33: // prevengo errore del cliente che digita 2 volte 3
         case 3:
             printf("Eccoti la bistecca\n");
             break;
