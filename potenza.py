@@ -1,4 +1,6 @@
 x = int(input("Faccio il quadrato di: "))
 
-if x != 0: 
+if x: 
     print(x ** 2)
+else:
+    print("Mi rifiuto con lo 0")
