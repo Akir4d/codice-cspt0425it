@@ -11,7 +11,7 @@ lowport = int(portre.split('-')[0])
 highpor = int(portre.split('-')[1])
 
 print(f"Scansisco {target} dalla porta {lowport} alla porta {highpor}")
-
+chiuse = []
 for port in range(lowport, highpor+1):
     # connessione ipv4 tcp
     s = so.socket(so.AF_INET, so.SOCK_STREAM)
@@ -21,5 +21,7 @@ for port in range(lowport, highpor+1):
     if (status == 0):
         print(f"*** Porta {port} aperta ***")
     else:
-        print(f"Porta {port} chiusa")
+        # print(f"Porta {port} chiusa")
+        chiuse.append(port)
     s.close()
+print("Porte chiuse: ", chiuse)
