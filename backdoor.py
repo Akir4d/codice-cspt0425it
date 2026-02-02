@@ -35,5 +35,5 @@ while True:
     connection.sendall(b"Ho ricevuto il messaggio \n")
     # stampo il messaggio ricevuto dal binario
     print(data.decode("utf-8"))
-#chiudo la connessione all'uscita
+# chiudo la connessione all'uscita
 connection.close()
