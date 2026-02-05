@@ -27,12 +27,6 @@ print("Collegamento ottenuto: ", address)
 # la connessione e' ciclo di domanda e risposta
 # gestimaolo con un ciclo infinito
 while True:
-    connection.sendall(b"""
-menu:
-    1 per piattaforma
-    2 lista file
-    0 per uscire
-""")
     # Scelgo quanti carretteri massimi ricevere
     try:
         data = connection.recv(1024)
@@ -54,8 +48,7 @@ menu:
             filelist = os.listdir(data.decode('utf-8').strip())
             tosend = ""
             for x in filelist:
-                connection.sendall(f"{x}\n".encode())
-                # tosend += "," + x
+                tosend += "," + x
         except:
             tosend = "Path errato"
             connection.sendall(tosend.encode())
