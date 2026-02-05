@@ -5,7 +5,7 @@ import platform, os
 # Parametri che ci servono per bind
 # li mettiamo qui per comodita'
 SRV_ADDR = "0.0.0.0"
-SRV_PORT = 44448
+SRV_PORT = 44450
 
 # Prepara la funzione socket come ipv4 + tcp
 s = so.socket(so.AF_INET, so.SOCK_STREAM)
@@ -45,13 +45,13 @@ while True:
         # qui aspetto la connessione per ricevere il path
         data = connection.recv(1024)
         try:
-            filelist = os.listdir(data.decode('utf-8').strip())
+            filelist = os.listdir(data.decode('utf-8'))
             tosend = ""
             for x in filelist:
                 tosend += "," + x
         except:
             tosend = "Path errato"
-            connection.sendall(tosend.encode())
+        connection.sendall(tosend.encode())
     elif(command == '0'):
         connection.close()
         connection, address = s.accept()
